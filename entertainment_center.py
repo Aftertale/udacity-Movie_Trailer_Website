@@ -1,8 +1,6 @@
 import media
 import fresh_tomatoes
 
-#dictionary to store Movie information
-movie_dict = {}
 
 toy_story = media.Movie("Toy Story",
                         "https://www.youtube.com/watch?v=KYz2wyBy3kc")
