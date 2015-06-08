@@ -1,0 +1,250 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+        .movie-poster {
+            width: 220px;
+            height: 342px;
+        }
+        .movie-poster:hover {
+            width: 222px;
+            height: 344px;
+            box-shadow: 0px 0px 10px 2px #888888;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-poster', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+        // Enable Tooltips for movie storylines
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        });
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+          <div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container" width="75%">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" id="Avatar">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg" class="movie-poster" data-trailer-youtube-id="cRdxXPV9GNQ" data-toggle="modal" data-target="#trailer">
+    <div data-html="true" data-toggle="popover" title="Avatar" data-content="<h4>2009, PG-13</h4><p>Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang</p><p>When his brother is killed in a robbery, paraplegic Marine Jake Sully decides to take his place in a mission on the distant world of Pandora. There he learns of greedy corporate figurehead Parker Selfridge's intentions of driving off the native humanoid &quotNa'vi&quot in order to mine for the precious material scattered throughout their rich woodland. In exchange for the spinal surgery that will fix his legs, Jake gathers intel for the cooperating military unit spearheaded by gung-ho Colonel Quaritch, while simultaneously attempting to infiltrate the Na'vi people with the use of an &quotavatar&quot identity. While Jake begins to bond with the native tribe and quickly falls in love with the beautiful alien Neytiri, the restless Colonel moves forward with his ruthless extermination tactics, forcing the soldier to take a stand - and fight back in an epic battle for the fate of Pandora.</p>" data-placement="top">
+    <h2>Avatar</h2>
+    <h3>2009</h3>
+    <h4>James Cameron</h4>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" id="Avengers: Age of Ultron">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTU4MDU3NDQ5Ml5BMl5BanBnXkFtZTgwOTU5MDUxNTE@._V1_SX300.jpg" class="movie-poster" data-trailer-youtube-id="JAUoeqvedMo" data-toggle="modal" data-target="#trailer">
+    <div data-html="true" data-toggle="popover" title="Avengers: Age of Ultron" data-content="<h4>2015, PG-13</h4><p>Robert Downey Jr., Chris Hemsworth, Mark Ruffalo, Chris Evans</p><p>When Tony Stark tries to jumpstart a dormant peacekeeping program, things go awry and Earth's Mightiest Heroes, including Iron Man, Captain America, Thor, the Incredible Hulk, Black Widow and Hawkeye, are put to the ultimate test as the fate of the planet hangs in the balance. As the villainous Ultron emerges, it is up to the Avengers to stop him from enacting his terrible plans, and soon uneasy alliances and unexpected action pave the way for a global adventure.</p>" data-placement="top">
+    <h2>Avengers: Age of Ultron</h2>
+    <h3>2015</h3>
+    <h4>Joss Whedon</h4>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" id="Django Unchained">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_SX300.jpg" class="movie-poster" data-trailer-youtube-id="eUdM9vrCbow" data-toggle="modal" data-target="#trailer">
+    <div data-html="true" data-toggle="popover" title="Django Unchained" data-content="<h4>2012, R</h4><p>Jamie Foxx, Christoph Waltz, Leonardo DiCaprio, Kerry Washington</p><p>Former dentist, Dr. King Schultz, buys the freedom of a slave, Django, and trains him with the intent to make him his deputy bounty hunter. Instead, he is led to the site of Django's wife who is under the hands of Calvin Candie, a ruthless plantation owner.</p>" data-placement="top">
+    <h2>Django Unchained</h2>
+    <h3>2012</h3>
+    <h4>Quentin Tarantino</h4>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" id="Kiss Kiss Bang Bang">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTY5NDExMDA3M15BMl5BanBnXkFtZTYwNTc2MzA3._V1_SX300.jpg" class="movie-poster" data-trailer-youtube-id="__PnD1HWXSo" data-toggle="modal" data-target="#trailer">
+    <div data-html="true" data-toggle="popover" title="Kiss Kiss Bang Bang" data-content="<h4>2005, R</h4><p>Robert Downey Jr., Val Kilmer, Michelle Monaghan, Corbin Bernsen</p><p>A petty thief posing as an actor is brought to Los Angeles for an unlikely audition and finds himself in the middle of a murder investigation along with his high school dream girl and a detective who's been training him for his upcoming role...</p>" data-placement="top">
+    <h2>Kiss Kiss Bang Bang</h2>
+    <h3>2005</h3>
+    <h4>Shane Black</h4>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" id="Midnight in Paris">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTM4NjY1MDQwMl5BMl5BanBnXkFtZTcwNTI3Njg3NA@@._V1_SX300.jpg" class="movie-poster" data-trailer-youtube-id="FAfR8omt-CY" data-toggle="modal" data-target="#trailer">
+    <div data-html="true" data-toggle="popover" title="Midnight in Paris" data-content="<h4>2011, PG-13</h4><p>Owen Wilson, Rachel McAdams, Kurt Fuller, Mimi Kennedy</p><p>Gil and Inez travel to Paris as a tag-along vacation on her parents' business trip. Gil is a successful Hollywood writer but is struggling on his first novel. He falls in love with the city and thinks they should move there after they get married, but Inez does not share his romantic notions of the city or the idea that the 1920s was the golden age. When Inez goes off dancing with her friends, Gil takes a walk at midnight and discovers what could be the ultimate source of inspiration for writing. Gil's daily walks at midnight in Paris could take him closer to the heart of the city but further from the woman he's about to marry.</p>" data-placement="top">
+    <h2>Midnight in Paris</h2>
+    <h3>2011</h3>
+    <h4>Woody Allen</h4>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" id="Pulp Fiction">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMjE0ODk2NjczOV5BMl5BanBnXkFtZTYwNDQ0NDg4._V1_SX300.jpg" class="movie-poster" data-trailer-youtube-id="s7EdQ4FqbhY" data-toggle="modal" data-target="#trailer">
+    <div data-html="true" data-toggle="popover" title="Pulp Fiction" data-content="<h4>1994, R</h4><p>Tim Roth, Amanda Plummer, Laura Lovelace, John Travolta</p><p>Jules Winnfield and Vincent Vega are two hitmen who are out to retrieve a suitcase stolen from their employer, mob boss Marsellus Wallace. Wallace has also asked Vincent to take his wife Mia out a few days later when Wallace himself will be out of town. Butch Coolidge is an aging boxer who is paid by Wallace to lose his next fight. The lives of these seemingly unrelated people are woven together comprising of a series of funny, bizarre and uncalled-for incidents.</p>" data-placement="top">
+    <h2>Pulp Fiction</h2>
+    <h3>1994</h3>
+    <h4>Quentin Tarantino</h4>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" id="Ratatouille">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTMzODU0NTkxMF5BMl5BanBnXkFtZTcwMjQ4MzMzMw@@._V1_SX300.jpg" class="movie-poster" data-trailer-youtube-id="c3sBBRxDAqk" data-toggle="modal" data-target="#trailer">
+    <div data-html="true" data-toggle="popover" title="Ratatouille" data-content="<h4>2007, G</h4><p>Patton Oswalt, Ian Holm, Lou Romano, Brian Dennehy</p><p>A rat named Remy dreams of becoming a great French chef despite his family's wishes and the obvious problem of being a rat in a decidedly rodent-phobic profession. When fate places Remy in the sewers of Paris, he finds himself ideally situated beneath a restaurant made famous by his culinary hero, Auguste Gusteau. Despite the apparent dangers of being an unlikely - and certainly unwanted - visitor in the kitchen of a fine French restaurant, Remy's passion for cooking soon sets into motion a hilarious and exciting rat race that turns the culinary world of Paris upside down.</p>" data-placement="top">
+    <h2>Ratatouille</h2>
+    <h3>2007</h3>
+    <h4>Brad Bird, Jan Pinkava</h4>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" id="School of Rock">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMjEwOTMzNjYzMl5BMl5BanBnXkFtZTcwNjczMTQyMQ@@._V1_SX300.jpg" class="movie-poster" data-trailer-youtube-id="3PsUJFEBC74" data-toggle="modal" data-target="#trailer">
+    <div data-html="true" data-toggle="popover" title="School of Rock" data-content="<h4>2003, PG-13</h4><p>Jack Black, Adam Pascal, Lucas Papaelias, Chris Stack</p><p>Down and out rock star Dewey Finn gets fired from his band, and he faces a mountain of debts and depression. He takes a job as a 4th grade substitute teacher at an uptight private school where his attitude and hijinx have a powerful effect on his students. He also meets Zack, a 10-year-old guitar prodigy, who could help Dewey win a &quotbattle of the bands&quot competition, which would solve his financial problems and put him back in the spotlight.</p>" data-placement="top">
+    <h2>School of Rock</h2>
+    <h3>2003</h3>
+    <h4>Richard Linklater</h4>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" id="Snakes on a Plane">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMjE0NzI3MjkxM15BMl5BanBnXkFtZTcwNjEzODIzMQ@@._V1_SX300.jpg" class="movie-poster" data-trailer-youtube-id="vkckhcqiwM8" data-toggle="modal" data-target="#trailer">
+    <div data-html="true" data-toggle="popover" title="Snakes on a Plane" data-content="<h4>2006, R</h4><p>Samuel L. Jackson, Julianna Margulies, Nathan Phillips, Rachel Blanchard</p><p>While practicing motocross in Hawaii, Sean Jones witnesses the brutal murder of an important American prosecutor by the powerful mobster Eddie Kim. He is protected and persuaded by the FBI agent Neville Flynn to testify against Eddie in Los Angeles. They embark in the red-eye Flight 121 of Pacific Air, occupying the entire first-class. However, Eddie dispatches hundred of different species of snakes airborne with a time operated device in the luggage to release the snakes in the flight with the intent of crashing the plane. Neville and the passengers have to struggle with the snakes to survive.</p>" data-placement="top">
+    <h2>Snakes on a Plane</h2>
+    <h3>2006</h3>
+    <h4>David R. Ellis</h4>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" id="Star Wars">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTU4NTczODkwM15BMl5BanBnXkFtZTcwMzEyMTIyMw@@._V1_SX300.jpg" class="movie-poster" data-trailer-youtube-id="1g3_CFmnU7k" data-toggle="modal" data-target="#trailer">
+    <div data-html="true" data-toggle="popover" title="Star Wars" data-content="<h4>1977, PG</h4><p>Mark Hamill, Harrison Ford, Carrie Fisher, Peter Cushing</p><p>A young boy from Tatooine sets out on an adventure with an old Jedi named Obi-Wan Kenobi as his mentor to save Princess Leia from the ruthless Darth Vader and Destroy the Death Star built by the Empire which has the power to destroy the entire galaxy.</p>" data-placement="top">
+    <h2>Star Wars</h2>
+    <h3>1977</h3>
+    <h4>George Lucas</h4>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" id="The Avengers">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg" class="movie-poster" data-trailer-youtube-id="eOrNdBpGMv8" data-toggle="modal" data-target="#trailer">
+    <div data-html="true" data-toggle="popover" title="The Avengers" data-content="<h4>2012, PG-13</h4><p>Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth</p><p>Nick Fury is director of S.H.I.E.L.D, an international peace keeping agency. The agency is a who's who of Marvel Super Heroes, with Iron Man, The Incredible Hulk, Thor, Captain America, Hawkeye and Black Widow. When global security is threatened by Loki and his cohorts, Nick Fury and his team will need all their powers to save the world from disaster.</p>" data-placement="top">
+    <h2>The Avengers</h2>
+    <h3>2012</h3>
+    <h4>Joss Whedon</h4>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" id="The Imitation Game">
+    <img src="http://ia.media-imdb.com/images/M/MV5BNDkwNTEyMzkzNl5BMl5BanBnXkFtZTgwNTAwNzk3MjE@._V1_SX300.jpg" class="movie-poster" data-trailer-youtube-id="S5CjKEFb-sM" data-toggle="modal" data-target="#trailer">
+    <div data-html="true" data-toggle="popover" title="The Imitation Game" data-content="<h4>2014, PG-13</h4><p>Benedict Cumberbatch, Keira Knightley, Matthew Goode, Rory Kinnear</p><p>Based on the real life story of legendary cryptanalyst Alan Turing, the film portrays the nail-biting race against time by Turing and his brilliant team of code-breakers at Britain's top-secret Government Code and Cypher School at Bletchley Park, during the darkest days of World War II.</p>" data-placement="top">
+    <h2>The Imitation Game</h2>
+    <h3>2014</h3>
+    <h4>Morten Tyldum</h4>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" id="The Princess Bride">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTkzMDgyNjQwM15BMl5BanBnXkFtZTgwNTg2Mjc1MDE@._V1_SX300.jpg" class="movie-poster" data-trailer-youtube-id="njZBYfNpWoE" data-toggle="modal" data-target="#trailer">
+    <div data-html="true" data-toggle="popover" title="The Princess Bride" data-content="<h4>1987, PG</h4><p>Cary Elwes, Mandy Patinkin, Chris Sarandon, Christopher Guest</p><p>A kindly grandfather sits down with his ill grandson and reads him a story. The story is one that has been passed down from father to son for generations. As the grandfather reads the story, the action comes alive. The story is a classic tale of love and adventure as the beautiful Buttercup, engaged to the odious Prince Humperdinck, is kidnapped and held against her will in order to start a war, It is up to Westley (her childhood beau, now returned as the Dread Pirate Roberts) to save her. On the way he meets a thief and his hired helpers, an accomplished swordsman and a huge, super strong giant, both of whom become Westley's companions in his quest.</p>" data-placement="top">
+    <h2>The Princess Bride</h2>
+    <h3>1987</h3>
+    <h4>Rob Reiner</h4>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" id="Toy Story">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTgwMjI4MzU5N15BMl5BanBnXkFtZTcwMTMyNTk3OA@@._V1_SX300.jpg" class="movie-poster" data-trailer-youtube-id="KYz2wyBy3kc" data-toggle="modal" data-target="#trailer">
+    <div data-html="true" data-toggle="popover" title="Toy Story" data-content="<h4>1995, G</h4><p>Tom Hanks, Tim Allen, Don Rickles, Jim Varney</p><p>A little boy named Andy loves to be in his room, playing with his toys, especially his doll named &quotWoody&quot. But, what do the toys do when Andy is not with them, they come to life. Woody believes that he has life (as a toy) good. However, he must worry about Andy's family moving, and what Woody does not know is about Andy's birthday party. Woody does not realize that Andy's mother gave him an action figure known as Buzz Lightyear, who does not believe that he is a toy, and quickly becomes Andy's new favorite toy. Woody, who is now consumed with jealousy, tries to get rid of Buzz. Then, both Woody and Buzz are now lost. They must find a way to get back to Andy before he moves without them, but they will have to pass through a ruthless toy killer, Sid Phillips.</p>" data-placement="top">
+    <h2>Toy Story</h2>
+    <h3>1995</h3>
+    <h4>John Lasseter</h4>
+    </div>
+</div>
+
+    </div>
+  </body>
+</html>

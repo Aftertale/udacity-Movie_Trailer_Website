@@ -24,6 +24,3 @@ class Movie():
         decode = response.decode(encoding='utf-8')
         movieInfo = json.loads(decode)
         return(movieInfo)
-    
-    #def get_you_tube_link(self):
-    #    youtubeurl = "https://gdata.youtube.com/feeds/api/videos"
