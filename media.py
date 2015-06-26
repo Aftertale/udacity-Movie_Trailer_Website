@@ -16,7 +16,8 @@ class Movie():
 
     def show_trailer(self):
         webbrowser.open(self.trailer_youtube_url)
-
+        
+#Instead of making the user enter all the information they need for their movie info, this method uses omdb api to get the info for the page: 
     def get_movie_info(self):
         url = "http://www.omdbapi.com/?t=" + self.title.replace(" ", "+") + "&y=" + self.year + "&plot=full&r=json"
         req = urllib.request.urlopen(url)
